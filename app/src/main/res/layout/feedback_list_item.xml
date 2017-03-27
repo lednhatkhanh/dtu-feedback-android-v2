@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+        <LinearLayout
+            android:id="@+id/feedback_image_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical"
+            android:weightSum="5">
+            <ImageView
+                android:id="@+id/feedback_imageView"
+                android:layout_width="150dp"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                tools:background="@color/colorAccent"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/feedback_status_and_category_textView"
+                android:layout_width="150dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                tools:background="@color/colorGreen"
+                tools:text="Something"
+                android:textColor="@color/colorTextPrimary"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/feedback_title_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@+id/feedback_image_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/guideLine"
+            android:layout_marginStart="8dp"
+            tools:text="Title goes here"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/feedback_updatedAt_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@+id/feedback_title_textView"
+            app:layout_constraintTop_toBottomOf="@+id/guideLine"
+            tools:text="Time goes here"
+            android:textSize="16sp"
+            android:textColor="@color/colorTextSecondary"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.5"
+            android:orientation="horizontal"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

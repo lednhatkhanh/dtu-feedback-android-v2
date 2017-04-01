@@ -31,9 +31,6 @@ public class Feedback {
     @SerializedName("solved")
     @Expose
     private Boolean solved;
-    @SerializedName("is_private")
-    @Expose
-    private Boolean isPrivate;
     @SerializedName("campus")
     @Expose
     private Campus campus;
@@ -96,14 +93,6 @@ public class Feedback {
 
     public void setSolved(Boolean solved) {
         this.solved = solved;
-    }
-
-    public Boolean getIsPrivate() {
-        return isPrivate;
-    }
-
-    public void setIsPrivate(Boolean isPrivate) {
-        this.isPrivate = isPrivate;
     }
 
     public Campus getCampus() {

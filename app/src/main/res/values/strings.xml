@@ -3,4 +3,20 @@
     <string name="delete">Delete</string>
     <string name="update">Update</string>
     <string name="comment">Comment</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="sign_up_here">Sign up here</string>
+    <string name="bad_email">Please provide a valid email address</string>
+    <string name="bad_password">The password must be atleast 6 characters</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="name">Name</string>
+    <string name="password_confirm">Password Confirm</string>
+    <string name="sign_up">Sign up</string>
+    <string name="login_here">Login here</string>
+    <string name="bad_name">User name is required</string>
+    <string name="password_mismatch">Password mismatch</string>
+    <string name="text_plain_type" translatable="false">text/plain</string>
+    <string name="image_type" translatable="false">image/*</string>
+    <string name="select_photo_title">Tap to select photo</string>
 </resources>

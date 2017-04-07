@@ -1,9 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.laluna_team.dtufeedbackv2.AddFeedbackActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+    <android.support.constraint.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        >
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="8dp"
+            tools:context="com.example.lutha.dtufeedback.MainActivity"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            >
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/feedback_imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="#C8353D"
+                    />
 
-</android.support.constraint.ConstraintLayout>
+                <EditText
+                    android:id="@+id/feedback_title_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập tiêu đề"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/feedback_imageView"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="8dp" />
+                <EditText
+                    android:id="@+id/feedback_description_textArea"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:hint="Nhập mô tả"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/feedback_title_editText"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
+                <EditText
+                    android:id="@+id/feedback_location_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập địa điểm"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/feedback_description_textArea"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
+                <TextView
+                    android:id="@+id/txtCategory"
+                    android:layout_width="100dp"
+                    android:layout_height="48dp"
+                    android:text="Chọn loại"
+                    android:gravity="center"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:padding="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/feedback_location_editText"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    android:layout_marginTop="8dp"
+                    />
+                <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/feedback_category_spinner"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/feedback_location_editText"
+                    app:layout_constraintLeft_toRightOf="@+id/txtCategory"
+                    android:layout_marginTop="8dp"
+
+                    />
+                <TextView
+                    android:id="@+id/txtCampus"
+                    android:layout_width="100dp"
+                    android:layout_height="48dp"
+                    android:text="Chọn cơ sở"
+                    android:gravity="center"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCategory"
+                    />
+                <Spinner
+                    android:id="@+id/feedback_campus_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/txtCampus"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/feedback_category_spinner" />
+
+                <Button
+                    android:id="@+id/send_feedback_button"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Gửi"
+                    app:layout_constraintTop_toBottomOf="@+id/feedback_campus_spinner"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+                <Button
+                    android:id="@+id/cancel_button"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:text="Hủy"
+                    app:layout_constraintTop_toBottomOf="@+id/send_feedback_button"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+    </android.support.constraint.ConstraintLayout>
+</layout>

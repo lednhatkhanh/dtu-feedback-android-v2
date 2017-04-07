@@ -1,4 +1,4 @@
-package com.laluna_team.dtufeedbackv2.model;
+package com.laluna_team.dtufeedbackv2.model.category;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by lednh on 3/27/2017.
  */
 
-public class Campus {
+public class Category {
 
     @SerializedName("id")
     @Expose

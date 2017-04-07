@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity
         int id = v.getId();
         switch (id) {
             case R.id.add_feedback_button:
+                startActivity(new Intent(this, AddFeedbackActivity.class));
                 break;
             default:
                 break;

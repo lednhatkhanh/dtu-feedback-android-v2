@@ -19,4 +19,8 @@
     <string name="text_plain_type" translatable="false">text/plain</string>
     <string name="image_type" translatable="false">image/*</string>
     <string name="select_photo_title">Tap to select photo</string>
+    <string name="title_required">Title is required</string>
+    <string name="location_required">Location is required</string>
+    <string name="description_required">Description is required</string>
+    <string name="description_too_short">Description must be at least 10 characters</string>
 </resources>

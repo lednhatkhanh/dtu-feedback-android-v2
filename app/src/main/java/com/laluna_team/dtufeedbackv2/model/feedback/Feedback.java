@@ -2,9 +2,9 @@ package com.laluna_team.dtufeedbackv2.model.feedback;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.laluna_team.dtufeedbackv2.model.Campus;
-import com.laluna_team.dtufeedbackv2.model.Category;
+import com.laluna_team.dtufeedbackv2.model.category.Category;
 import com.laluna_team.dtufeedbackv2.model.User;
+import com.laluna_team.dtufeedbackv2.model.campus.Campus;
 
 import java.util.Date;
 

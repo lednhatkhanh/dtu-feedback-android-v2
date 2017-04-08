@@ -23,7 +23,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".AddFeedbackActivity"></activity>
+        <activity android:name=".AddFeedbackActivity" />
+        <activity android:name=".DetailActivity"></activity>
     </application>
 
 </manifest>

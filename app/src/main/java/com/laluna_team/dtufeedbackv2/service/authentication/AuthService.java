@@ -8,6 +8,7 @@ import com.laluna_team.dtufeedbackv2.LoginActivity;
 import com.laluna_team.dtufeedbackv2.MainActivity;
 import com.laluna_team.dtufeedbackv2.R;
 import com.laluna_team.dtufeedbackv2.model.Auth;
+import com.laluna_team.dtufeedbackv2.model.user.UserWrapper;
 import com.laluna_team.dtufeedbackv2.utils.PreferenceUtils;
 
 import java.io.File;
@@ -49,7 +50,7 @@ public class AuthService {
 
                         PreferenceUtils.saveAuthenticationToken(mContext, token);
 
-                        mContext.startActivity(new Intent(mContext, MainActivity.class));
+                        getMe(mContext);
                     }
                     // TODO Implement error message here
                 }
@@ -117,5 +118,27 @@ public class AuthService {
                 }
             });
         }
+    }
+
+    public static void getMe(final Context mContext) {
+        Retrofit retrofit = AppRetrofit.getRetrofitInstance(mContext);
+        IAuthService authService = retrofit.create(IAuthService.class);
+        Call<UserWrapper> call = authService.getMe();
+        call.enqueue(new Callback<UserWrapper>() {
+            @Override
+            public void onResponse(Call<UserWrapper> call, Response<UserWrapper> response) {
+                if (response.isSuccessful()) {
+                    PreferenceUtils.saveCurrentUser(mContext, response.body().getUser());
+                    mContext.startActivity(new Intent(mContext, MainActivity.class));
+                } else {
+                    // TODO Display error message here
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserWrapper> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 }

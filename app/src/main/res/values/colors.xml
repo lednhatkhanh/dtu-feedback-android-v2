@@ -10,4 +10,5 @@
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorYellow">#FFEB3B</color>
     <color name="colorGreen">#4CAF50</color>
+    <color name="colorGray">#333333</color>
 </resources>

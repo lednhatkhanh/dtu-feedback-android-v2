@@ -50,6 +50,7 @@ public class AddFeedbackActivity extends AppCompatActivity implements View.OnCli
         }
 
         NetworkUtils.isOnline(this);
+
         CampusService.getAllCampuses(this, new CampusService.CampusListLoadedCallback() {
             @Override
             public void onCampusListLoaded(List<Campus> campusList) {

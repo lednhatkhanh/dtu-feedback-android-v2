@@ -28,7 +28,7 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.Feedba
     private Context mContext;
     FeedbackAdapterOnClickHandler mClickHandler;
 
-    List<Feedback> feedbackList;
+    public static List<Feedback> feedbackList;
 
     public FeedbackAdapter(Context context, FeedbackAdapterOnClickHandler clickHandler) {
         mContext = context;
@@ -122,14 +122,17 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.Feedba
             feedbackListItemBinding = DataBindingUtil.bind(view);
 
             // ----- Same onClick handler -----
-            feedbackListItemBinding.feedbackTitleTextView.setOnClickListener(this);
-            feedbackListItemBinding.feedbackImageView.setOnClickListener(this);
+            feedbackListItemBinding.getRoot().setOnClickListener(this);
             // ----- Same onClick handler -----
         }
 
         @Override
         public void onClick(View v) {
+            int id = feedbackList.get(getAdapterPosition()).getId();
 
+            Log.d("TITLE", feedbackList.get(getAdapterPosition()).getTitle());
+
+            mClickHandler.onClick(id);
         }
 
         public FeedbackListItemBinding getBinding() {

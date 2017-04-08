@@ -1,4 +1,4 @@
-package com.laluna_team.dtufeedbackv2.model;
+package com.laluna_team.dtufeedbackv2.model.user;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -16,6 +16,10 @@ public class User {
     @SerializedName("name")
     @Expose
     private String name;
+
+    @SerializedName("email")
+    @Expose
+    private String email;
 
     @SerializedName("avatar")
     @Expose
@@ -43,5 +47,13 @@ public class User {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

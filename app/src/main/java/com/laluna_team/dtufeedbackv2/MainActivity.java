@@ -8,7 +8,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.github.pwittchen.infinitescroll.library.InfiniteScrollListener;
 import com.laluna_team.dtufeedbackv2.adapter.FeedbackAdapter;
@@ -98,7 +100,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(int Id) {
+        Toast.makeText(this, "ID: " + Id, Toast.LENGTH_SHORT).show();
 
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra("feedback_id", Id);
+        startActivity(intent);
     }
 
     @Override

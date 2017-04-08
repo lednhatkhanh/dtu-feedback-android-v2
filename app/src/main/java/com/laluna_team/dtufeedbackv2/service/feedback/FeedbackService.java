@@ -87,6 +87,9 @@ public class FeedbackService {
                                       int categoryId,
                                       String filePath,
                                       String description) {
+
+        NetworkUtils.isOnline(mContext);
+
         if (title == null || title.isEmpty()) {
             PreferenceUtils.displayMessageAlert(mContext,
                     mContext.getString(R.string.title_required));
@@ -143,5 +146,67 @@ public class FeedbackService {
                 }
             });
         }
+    }
+
+    public interface OnSingleFeedbackLoadedCallback {
+        public void onLoaded(Feedback feedback);
+    }
+
+    public static void getFeedbackById(final Context mContext, int id,
+                                       final OnSingleFeedbackLoadedCallback singleFeedbackLoadedCallback) {
+
+        NetworkUtils.isOnline(mContext);
+
+        Retrofit retrofit = AppRetrofit.getRetrofitInstance(mContext);
+        IFeedbackService feedbackService = retrofit.create(IFeedbackService.class);
+        Call<FeedbackWrapper> call = feedbackService.getFeedbackById(id);
+        call.enqueue(new Callback<FeedbackWrapper>() {
+            @Override
+            public void onResponse(Call<FeedbackWrapper> call, Response<FeedbackWrapper> response) {
+                if(response.isSuccessful()) {
+                    try {
+                        Feedback feedback = response.body().getFeedback();
+
+                        Log.d("FEEDBACK", feedback.getTitle());
+
+                        singleFeedbackLoadedCallback.onLoaded(feedback);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    // TODO Implement error message here
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FeedbackWrapper> call, Throwable t) {
+                singleFeedbackLoadedCallback.onLoaded(null);
+            }
+        });
+    }
+
+    public static void toggleFeedback(final Context mContext, int feedbackId, final OnSingleFeedbackLoadedCallback callback) {
+        NetworkUtils.isOnline(mContext);
+
+        Retrofit retrofit = AppRetrofit.getRetrofitInstance(mContext);
+        IFeedbackService feedbackService = retrofit.create(IFeedbackService.class);
+        Call<FeedbackWrapper> call = feedbackService.toggleFeedback(feedbackId);
+        call.enqueue(new Callback<FeedbackWrapper>() {
+            @Override
+            public void onResponse(Call<FeedbackWrapper> call, Response<FeedbackWrapper> response) {
+                if(response.isSuccessful()) {
+                    callback.onLoaded(response.body().getFeedback());
+                } else {
+                    // TODO Display error message here
+                    callback.onLoaded(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FeedbackWrapper> call, Throwable t) {
+                t.printStackTrace();
+                callback.onLoaded(null);
+            }
+        });
     }
 }

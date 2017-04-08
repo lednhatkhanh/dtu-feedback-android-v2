@@ -10,6 +10,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -32,4 +33,9 @@ public interface IFeedbackService {
                                          @Part("campus_id") RequestBody campusId,
                                          @Part("category_id") RequestBody categoryId,
                                          @Part MultipartBody.Part image);
+    @GET("feedbacks/{id}")
+    Call<FeedbackWrapper> getFeedbackById(@Path("id") int feedbackId);
+
+    @GET("feedbacks/{id}/toggleSolved")
+    Call<FeedbackWrapper> toggleFeedback(@Path("id") int feedbackId);
 }
